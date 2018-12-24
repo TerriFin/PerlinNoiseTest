@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.domain.NodeMap;
+import com.mygdx.generation.IslandNoise;
 import com.mygdx.generation.RawNoise;
 import com.mygdx.gui.MapBatcher;
 
@@ -16,8 +17,10 @@ public class Main extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-                map = new NodeMap(100, 100);
-                map.applyNewNoise(RawNoise.generateRawNoise(100, 100));
+                map = new NodeMap(60, 60);
+                map.applyNewNoise(RawNoise.generateRawNoise(60, 60));
+                
+                map.applyNewNoiseSharp(IslandNoise.generateIslandNoise(60, 60));
 	}
 
 	@Override
