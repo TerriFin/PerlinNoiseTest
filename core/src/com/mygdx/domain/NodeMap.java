@@ -10,10 +10,16 @@ package com.mygdx.domain;
  * @author samisaukkonen
  */
 public class NodeMap {
-    Node[][] map;
+    public Node[][] map;
     
     public NodeMap(int width, int height) {
         this.map = new Node[width][height];
+        
+        for (int x = 0; x < this.map.length; x++) {
+            for (int y = 0; y < this.map[x].length; y++) {
+                this.map[x][y] = new Node(x, y, 0);
+            }
+        }
     }
     
     public void applyNewNoise(int[][] noise) {

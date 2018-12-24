@@ -10,9 +10,9 @@ package com.mygdx.domain;
  * @author samisaukkonen
  */
 public class Node {
-    int x;
-    int y;
-    int elevation;
+    public int x;
+    public int y;
+    public int elevation;
     
     public Node(int x, int y, int elevation) {
         this.x = x;
