@@ -7,7 +7,6 @@ package com.mygdx.gui;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.domain.NodeMap;
 
 /**
  *
@@ -23,30 +22,30 @@ public class MapBatcher {
     static Texture darkBrown = new Texture("DarkBrown.png");
     static Texture white = new Texture("White.png");
 
-    public static void placeNodeMapInBatch(SpriteBatch batch, NodeMap map) {
-        for (int x = 0; x < map.map.length; x++) {
-            for (int y = 0; y < map.map[x].length; y++) {
+    public static void placeNodeMapInBatch(SpriteBatch batch, double[][] map) {
+        for (int x = 0; x < map.length; x++) {
+            for (int y = 0; y < map[x].length; y++) {
                 Texture img;
                 
-                if (map.map[x][y].elevation <= 30) {
+                if (map[x][y] <= -0.3) {
                     img = darkBlue;
-                } else if (map.map[x][y].elevation <= 40) {
+                } else if (map[x][y] <= 0.07) {
                     img = lightBlue;
-                } else if (map.map[x][y].elevation <= 43) {
+                } else if (map[x][y] <= 0.17) {
                     img = orange;
-                } else if (map.map[x][y].elevation <= 55) {
+                } else if (map[x][y] <= 0.35) {
                     img = lightGreen;
-                } else if (map.map[x][y].elevation <= 70) {
+                } else if (map[x][y] <= 0.65) {
                     img = darkGreen;
-                } else if (map.map[x][y].elevation <= 85) {
+                } else if (map[x][y] <= 0.8) {
                     img = lightBrown;
-                } else if (map.map[x][y].elevation <= 95) {
+                } else if (map[x][y] <= 0.9) {
                     img = darkBrown;
                 } else {
                     img = white;
                 }
                 
-                batch.draw(img, map.map[x][y].x * 10, map.map[x][y].y * 10, 10, 10);
+                batch.draw(img, x * 2, y * 2, 2, 2);
             }
         }
     }

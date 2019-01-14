@@ -9,22 +9,24 @@ package com.mygdx.domain;
  *
  * @author samisaukkonen
  */
-public class Node {
+public class Point2 {
     public int x;
     public int y;
-    public int elevation;
     
-    public Node(int x, int y, int elevation) {
+    public Point2(int x, int y) {
         this.x = x;
         this.y = y;
-        this.elevation = elevation;
     }
     
-    public int getDistance(Node node) {
-        return Math.abs((x - node.x) + (y - node.y));
+    @Override
+    public int hashCode() {
+        return Integer.parseInt(x + "" + y);
     }
     
-    public int getElevationDifference(Node node) {
-        return Math.abs(elevation - node.elevation);
+    @Override
+    public boolean equals(Object o) {
+        Point2 point = (Point2) o;
+        
+        return this.hashCode() == o.hashCode();
     }
 }

@@ -5,7 +5,7 @@
  */
 package com.mygdx.main;
 
-import com.mygdx.generation.IslandNoise;
+import com.mygdx.domain.PerlinNoise2;
 
 /**
  *
@@ -17,14 +17,14 @@ public class TestMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[][] island = IslandNoise.generateIslandNoise(50, 50);
+        PerlinNoise2 perlin = new PerlinNoise2();
         
-        for (int x = 0; x < island.length; x++) {
-            for (int y = 0; y < island[x].length; y++) {
-                System.out.print(island[x][y] + ", ");
+        for (double x = 0; x < 500; x += 0.1) {
+            for (double y = 0; y < 500; y += 0.1) {
+                if (perlin.getNoise(x, y) >= 1 || perlin.getNoise(x, y) <= -1) {
+                    System.out.println(perlin.getNoise(x, y));
+                }
             }
-            
-            System.out.println("");
         }
     }
     

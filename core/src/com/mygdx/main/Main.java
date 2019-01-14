@@ -5,22 +5,28 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.domain.NodeMap;
-import com.mygdx.generation.IslandNoise;
-import com.mygdx.generation.RawNoise;
+import com.mygdx.domain.PerlinNoise2;
 import com.mygdx.gui.MapBatcher;
 
 public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
-	NodeMap map;
+	double[][] map;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-                map = new NodeMap(60, 60);
-                map.applyNewNoise(RawNoise.generateRawNoise(60, 60));
+                map = new double[1000][1000];
                 
-                map.applyNewNoiseSharp(IslandNoise.generateIslandNoise(60, 60));
+                PerlinNoise2 perlin = new PerlinNoise2();
+                
+                for (double x = 0; x < map.length; x++) {
+                    for (double y = 0; y < map.length; y++) {
+                        int intX = (int) x;
+                        int intY = (int) y;
+                        
+                        map[intX][intY] = perlin.getNoise(x * 0.1, y * 0.1);
+                    }
+                }
 	}
 
 	@Override
