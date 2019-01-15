@@ -20,7 +20,7 @@ public class Main extends ApplicationAdapter {
         map = new double[1300][1300];
 
         
-        TwoDimensionalNoiseGenerator gen = new TwoDimensionalNoiseGenerator(1, 32, 10);
+        TwoDimensionalNoiseGenerator gen = new TwoDimensionalNoiseGenerator(1, 16, 10);
         System.out.println(gen.octaves);
         
 

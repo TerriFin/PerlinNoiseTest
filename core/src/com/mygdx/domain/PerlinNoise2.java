@@ -25,23 +25,23 @@ public class PerlinNoise2 {
         x /= waveLength;
         y /= waveLength;
         
-        int xWaveLength = (int) x * waveLength;
-        int yWaveLength = (int) y * waveLength;
+        int xWaveLength = (int) x;
+        int yWaveLength = (int) y;
         
-        Point2 p0 = new Point2((int) xWaveLength, yWaveLength);
-        Point2 p1 = new Point2((int) xWaveLength + waveLength, yWaveLength);
-        Point2 p2 = new Point2((int) xWaveLength, yWaveLength + waveLength);
-        Point2 p3 = new Point2((int) xWaveLength + waveLength, yWaveLength + waveLength);
+        Point2 p0 = new Point2(xWaveLength, yWaveLength);
+        Point2 p1 = new Point2(xWaveLength + 1, yWaveLength);
+        Point2 p2 = new Point2(xWaveLength, yWaveLength + 1);
+        Point2 p3 = new Point2(xWaveLength + 1, yWaveLength + 1);
 
         Vector2 gradP0 = gen.getVectorForPoint(p0);
         Vector2 gradP1 = gen.getVectorForPoint(p1);
         Vector2 gradP2 = gen.getVectorForPoint(p2);
         Vector2 gradP3 = gen.getVectorForPoint(p3);
 
-        Vector2 g0 = new Vector2(x * waveLength - p0.x, y * waveLength - p0.y).divideBy(waveLength);
-        Vector2 g1 = new Vector2(x * waveLength - p1.x, y * waveLength - p1.y).divideBy(waveLength);
-        Vector2 g2 = new Vector2(x * waveLength - p2.x, y * waveLength - p2.y).divideBy(waveLength);
-        Vector2 g3 = new Vector2(x * waveLength - p3.x, y * waveLength - p3.y).divideBy(waveLength);
+        Vector2 g0 = new Vector2(x - p0.x, y - p0.y);
+        Vector2 g1 = new Vector2(x - p1.x, y - p1.y);
+        Vector2 g2 = new Vector2(x - p2.x, y - p2.y);
+        Vector2 g3 = new Vector2(x - p3.x, y - p3.y);
 
         double finalP0Value = gradP0.dotProduct(g0);
         double finalP1Value = gradP1.dotProduct(g1);
