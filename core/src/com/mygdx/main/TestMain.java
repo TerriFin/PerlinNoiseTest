@@ -17,15 +17,8 @@ public class TestMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PerlinNoise2 perlin = new PerlinNoise2();
-        
-        for (double x = 0; x < 500; x += 0.1) {
-            for (double y = 0; y < 500; y += 0.1) {
-                if (perlin.getNoise(x, y) >= 1 || perlin.getNoise(x, y) <= -1) {
-                    System.out.println(perlin.getNoise(x, y));
-                }
-            }
-        }
+        double test = 4.4;
+        System.out.println((int) test * 10);
     }
     
 }

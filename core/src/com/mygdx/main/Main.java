@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.domain.PerlinNoise2;
+import com.mygdx.domain.TwoDimensionalNoiseGenerator;
 import com.mygdx.gui.MapBatcher;
 
 public class Main extends ApplicationAdapter {
@@ -16,16 +17,19 @@ public class Main extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        map = new double[400][400];
+        map = new double[1400][1400];
 
-        PerlinNoise2 perlin = new PerlinNoise2();
+        
+        TwoDimensionalNoiseGenerator gen = new TwoDimensionalNoiseGenerator(1, 16, 10);
+        System.out.println(gen.octaves);
+        
 
         for (double x = 0; x < map.length; x++) {
             for (double y = 0; y < map.length; y++) {
                 int intX = (int) x;
                 int intY = (int) y;
 
-                map[intX][intY] = perlin.getNoise(x * 0.1, y * 0.1);
+                map[intX][intY] = gen.getNoise(x * 0.1, y * 0.1);
             }
         }
     }

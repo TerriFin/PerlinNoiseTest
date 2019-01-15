@@ -27,19 +27,19 @@ public class MapBatcher {
             for (int y = 0; y < map[x].length; y++) {
                 Texture img;
                 
-                if (map[x][y] <= 0.48) {
+                if (map[x][y] <= 0.47) {
                     img = darkBlue;
-                } else if (map[x][y] < 0.55) {
+                } else if (map[x][y] < 0.5) {
                     img = lightBlue;
-                } else if (map[x][y] <= 0.6) {
+                } else if (map[x][y] <= 0.52) {
                     img = orange;
-                } else if (map[x][y] <= 0.7) {
+                } else if (map[x][y] <= 0.55) {
                     img = lightGreen;
-                } else if (map[x][y] <= 0.8) {
+                } else if (map[x][y] <= 0.58) {
                     img = darkGreen;
-                } else if (map[x][y] <= 0.85) {
+                } else if (map[x][y] <= 0.62) {
                     img = lightBrown;
-                } else if (map[x][y] <= 0.9) {
+                } else if (map[x][y] <= 0.74) {
                     img = darkBrown;
                 } else {
                     img = white;

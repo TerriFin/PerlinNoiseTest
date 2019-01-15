@@ -21,4 +21,11 @@ public class Vector2 {
     public double dotProduct(Vector2 vector) {
         return x * vector.x + y * vector.y;
     }
+    
+    public Vector2 divideBy(int divider) {
+        x /= divider;
+        y /= divider;
+        
+        return this;
+    }
 }
