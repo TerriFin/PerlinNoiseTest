@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.domain.PerlinNoise2;
 import com.mygdx.domain.TwoDimensionalNoiseGenerator;
 import com.mygdx.gui.MapBatcher;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 public class Main extends ApplicationAdapter {
 
@@ -16,20 +18,22 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        
         batch = new SpriteBatch();
-        map = new double[1300][1300];
+        map = new double[screenSize.width][screenSize.height];
 
         
-        TwoDimensionalNoiseGenerator gen = new TwoDimensionalNoiseGenerator(1, 16, 10);
+        TwoDimensionalNoiseGenerator gen = new TwoDimensionalNoiseGenerator(100, 256, 10);
         System.out.println(gen.octaves);
         
 
         for (double x = 0; x < map.length; x++) {
-            for (double y = 0; y < map.length; y++) {
+            for (double y = 0; y < map[(int) x].length; y++) {
                 int intX = (int) x;
                 int intY = (int) y;
 
-                map[intX][intY] = gen.getNoise(x * 0.1, y * 0.1);
+                map[intX][intY] = gen.getNoise(x * 0.5, y * 0.5);
             }
         }
     }

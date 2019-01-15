@@ -26,7 +26,7 @@ public class TwoDimensionalNoiseGenerator {
             this.noises.add(new PerlinNoise2(amplitude, waveLength));
         } else if (octaves == 2) {
             this.noises.add(new PerlinNoise2(amplitude / 2, waveLength));
-            this.noises.add(new PerlinNoise2(amplitude / 2, waveLength + 1));
+            this.noises.add(new PerlinNoise2(amplitude / 2, waveLength));
         } else {
             while (waveLength >= 1 && counter < octaves) {
                 amplitude /= 2;
