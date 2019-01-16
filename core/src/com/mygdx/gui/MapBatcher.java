@@ -27,7 +27,7 @@ public class MapBatcher {
             for (int y = 0; y < map[x].length; y++) {
                 Texture img;
                 
-                if (map[x][y] <= 47) {
+                if (map[x][y] <= 41) {
                     img = darkBlue;
                 } else if (map[x][y] < 51) {
                     img = lightBlue;

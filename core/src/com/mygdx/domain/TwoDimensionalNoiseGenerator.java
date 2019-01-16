@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mygdx.domain;
+package com.mygdx.generation;
 
+import com.mygdx.domain.PerlinNoise2;
 import java.util.ArrayList;
 import java.util.List;
 
