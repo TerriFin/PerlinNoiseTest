@@ -22,12 +22,12 @@ public class MapBatcher {
     static Texture darkBrown = new Texture("DarkBrown.png");
     static Texture white = new Texture("White.png");
 
-    public static void placeNodeMapInBatch(SpriteBatch batch, double[][] map) {
+    public static void placeMapInBatch(SpriteBatch batch, double[][] map) {
         for (int x = 0; x < map.length; x++) {
             for (int y = 0; y < map[x].length; y++) {
                 Texture img;
                 
-                if (map[x][y] <= 41) {
+                if (map[x][y] <= 48) {
                     img = darkBlue;
                 } else if (map[x][y] < 51) {
                     img = lightBlue;

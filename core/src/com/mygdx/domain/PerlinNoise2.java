@@ -22,6 +22,9 @@ public class PerlinNoise2 {
     }
 
     public double getNoise(double x, double y) {
+        x = Integer.MAX_VALUE / 2 + x;
+        y = Integer.MAX_VALUE / 2 + y;
+        
         x /= waveLength;
         y /= waveLength;
         

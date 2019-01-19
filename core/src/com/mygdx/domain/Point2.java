@@ -25,13 +25,21 @@ public class Point2 {
 
     @Override
     public int hashCode() {
-        return Integer.parseInt(x + "" + y);
+        int result = 454;
+        result = 37 * result + x + y;
+        return result;
     }
 
     @Override
     public boolean equals(Object o) {
         Point2 point = (Point2) o;
 
-        return this.hashCode() == o.hashCode();
+        if (x == point.x && y == point.y) {
+
+            return true;
+
+        }
+
+        return false;
     }
 }

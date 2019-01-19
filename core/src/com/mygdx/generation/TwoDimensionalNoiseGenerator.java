@@ -17,6 +17,9 @@ public class TwoDimensionalNoiseGenerator {
     private List<PerlinNoise2> noises;
     public int octaves;
     
+    private double amplitude;
+    private int waveLength;
+    
     public TwoDimensionalNoiseGenerator(double amplitude, int waveLength, int octaves) {
         this.noises = new ArrayList();
         this.octaves = octaves;
@@ -40,6 +43,9 @@ public class TwoDimensionalNoiseGenerator {
             
             this.octaves = counter;
         }
+        
+        this.amplitude = amplitude;
+        this.waveLength = waveLength;
     }
     
     public double getNoise(double x, double y) {
@@ -49,5 +55,16 @@ public class TwoDimensionalNoiseGenerator {
         }
         
         return toReturn;
+    }
+    
+    @Override
+    public int hashCode() {
+        return Integer.parseInt(octaves + "" + (int) amplitude + "" + waveLength);
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        TwoDimensionalNoiseGenerator gen = (TwoDimensionalNoiseGenerator) o;
+        return this.hashCode() == gen.hashCode();
     }
 }
